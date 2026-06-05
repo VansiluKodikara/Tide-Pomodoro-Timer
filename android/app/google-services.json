@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "368393241409",
+    "firebase_url": "https://tide-pomodoro-default-rtdb.firebaseio.com",
+    "project_id": "tide-pomodoro",
+    "storage_bucket": "tide-pomodoro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368393241409:android:7e0a6b2de1454f897957c0",
+        "android_client_info": {
+          "package_name": "com.example.pomodoro_timer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368393241409-bllqrffsodco1kifogvro82jvnpfhqhm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD26WAs1FqiDeCONa_8fonyJer8lc3vKuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368393241409-bllqrffsodco1kifogvro82jvnpfhqhm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "368393241409-4uppgifebai9bt8s3aj9sjfqvvf0oomv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pomodoroTimer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
