@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pomodoro_timer/pages/createAccount.dart';
 import 'package:pomodoro_timer/pages/home.dart';
 
-class getStarted extends StatelessWidget {
+class getStarted extends StatefulWidget {
   const getStarted({super.key});
 
+  @override
+  State<getStarted> createState() => _getStartedState();
+}
+
+class _getStartedState extends State<getStarted> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -69,8 +74,6 @@ class BackgroundGifScreen extends StatelessWidget {
             ],
           ),
 
-
-
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
@@ -97,20 +100,19 @@ class BackgroundGifScreen extends StatelessWidget {
                       ),
                     ),
                       child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                            Text("Next"),
-                            Icon(Icons.navigate_next),
-                          ],
-                        ),
+                            child: Row(
+                              children: [
+                                Text("Next"),
+                                Icon(Icons.arrow_forward_ios)
+                              ],
+                              mainAxisAlignment: MainAxisAlignment.center,
+                            ),
                       ),
                     ),
                 ],
               ),
             ),
-          )
-
+          ),
         ],
       ),
     );

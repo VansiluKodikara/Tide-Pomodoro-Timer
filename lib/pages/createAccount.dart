@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:pomodoro_timer/pages/getStarted.dart';
+import 'package:pomodoro_timer/pages/emailPage.dart';
 
 class createAccount extends StatefulWidget {
   const createAccount({super.key});
@@ -84,7 +85,46 @@ class _createAccountState extends State<createAccount> {
                               ),
                             ),
 
+                            const Spacer(flex: 3),
 
+                            Align(
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => emailPage(),
+                                            ),
+                                        );
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        side: BorderSide.none,
+                                        minimumSize: const Size(double.infinity, 80),
+                                        backgroundColor: Colors.white,
+                                        foregroundColor: const Color(0xFF0A5BFF),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(25),
+                                        ),
+                                      ),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.email_rounded),
+                                            const SizedBox(width: 5),
+                                            Text("Continue with Email"),
+                                          ],
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                              alignment: Alignment.bottomCenter,
+                            ),
                           ],
                         ),
                     ),
