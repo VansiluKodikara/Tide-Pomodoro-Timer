@@ -53,8 +53,8 @@ class _pomodoroTimerState extends State<pomodoroTimer> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
             colors: [Color(0xFF0A5BFF), Color(0xFF1E90FF), Color(0xFF63D4FF)],
           ),
         ),
