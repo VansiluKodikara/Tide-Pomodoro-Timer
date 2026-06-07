@@ -1,6 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: pomodoroTimer(),
+  ));
+}
+
 class pomodoroTimer extends StatefulWidget {
   const pomodoroTimer({super.key});
 
@@ -14,7 +21,7 @@ class _pomodoroTimerState extends State<pomodoroTimer> {
   Timer? _timer;
 
   void _startTimer() {
-    if (_timer != null) return; // Prevent multiple timers
+    if (_timer != null) return;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (_seconds > 0) {
@@ -40,7 +47,7 @@ class _pomodoroTimerState extends State<pomodoroTimer> {
 
   @override
   void dispose() {
-    _timer?.cancel(); // Clean up timer when leaving page
+    _timer?.cancel();
     super.dispose();
   }
 
@@ -51,6 +58,8 @@ class _pomodoroTimerState extends State<pomodoroTimer> {
 
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
@@ -58,26 +67,61 @@ class _pomodoroTimerState extends State<pomodoroTimer> {
             colors: [Color(0xFF0A5BFF), Color(0xFF1E90FF), Color(0xFF63D4FF)],
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("$minutes:$seconds",
-                  style: const TextStyle(fontSize: 80, color: Colors.white, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: _timer == null ? _startTimer : _stopTimer,
-                    child: Text(_timer == null ? "START" : "PAUSE"),
-                  ),
-                  const SizedBox(width: 20),
-                  ElevatedButton(onPressed: _resetTimer, child: const Text("RESET")),
-                ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(40.0),
+              child: Image.asset(
+                'assets/img/wave.gif',
+                width: 250,
+                height: 250,
+                fit: BoxFit.contain,
               ),
-            ],
-          ),
+            ),
+
+            const SizedBox(height: 20),
+
+            Text(
+              "$minutes:$seconds",
+              style: const TextStyle(
+                fontSize: 80,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Courier',
+              ),
+            ),
+
+            const SizedBox(height: 40),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF0A5BFF),
+                  ),
+                  onPressed: _timer == null ? _startTimer : _stopTimer,
+                  child: Text(
+                    _timer == null ? "START" : "PAUSE",
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(color: Colors.white),
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: _resetTimer,
+                  child: const Text("RESET"),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
