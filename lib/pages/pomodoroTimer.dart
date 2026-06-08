@@ -88,7 +88,6 @@ class _pomodoroTimerState extends State<pomodoroTimer> {
                 fontSize: 80,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Courier',
               ),
             ),
 
@@ -109,7 +108,9 @@ class _pomodoroTimerState extends State<pomodoroTimer> {
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
+
                 const SizedBox(width: 20),
+
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.white),
