@@ -60,7 +60,7 @@ class _createAccountState extends State<createAccount> {
 
                 child: SafeArea(
                     child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 100),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Column(
                           children: [
                             const Spacer(flex: 2),
@@ -87,30 +87,30 @@ class _createAccountState extends State<createAccount> {
 
                             const Spacer(flex: 3),
 
-                            Align(
-                              child: Padding(
+                              Padding(
                                 padding: const EdgeInsets.all(20.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  children: [
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  height: 55,
+                                  child:
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder: (context) => emailPage(),
+                                              builder: (context) => emailPage(),
                                             ),
-                                        );
-                                      },
-                                      style: ElevatedButton.styleFrom(
-                                        side: BorderSide.none,
-                                        minimumSize: const Size(double.infinity, 80),
-                                        backgroundColor: Colors.white,
-                                        foregroundColor: const Color(0xFF0A5BFF),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(25),
+                                          );
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          side: BorderSide.none,
+                                          minimumSize: const Size(double.infinity, 80),
+                                          backgroundColor: Colors.white,
+                                          foregroundColor: const Color(0xFF0A5BFF),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                          ),
                                         ),
-                                      ),
                                         child: Row(
                                           children: [
                                             Icon(Icons.email_rounded),
@@ -120,11 +120,8 @@ class _createAccountState extends State<createAccount> {
                                           mainAxisAlignment: MainAxisAlignment.center,
                                         ),
                                       ),
-                                  ],
                                 ),
                               ),
-                              alignment: Alignment.bottomCenter,
-                            ),
                           ],
                         ),
                     ),

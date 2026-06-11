@@ -46,13 +46,11 @@ class _emailPageState extends State<emailPage> {
         password: _passwordController.text.trim(),
       );
 
-      // If successful, navigate to the Home screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => pomodoroTimer()),
       );
     } on FirebaseAuthException catch (e) {
-      // Handle errors (like wrong password or user not found)
       String message = "An error occurred";
       if (e.code == 'user-not-found') {
         message = "No user found for that email.";
@@ -97,55 +95,74 @@ class _emailPageState extends State<emailPage> {
             children: [
               TextFormField(
                 controller: _emailController,
-                decoration: const InputDecoration(labelText: 'Email'),
+                cursorColor: const Color(0xFF0A5BFF),
+                decoration: const InputDecoration(
+                    labelText: 'Email',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: const Color(0xFF0A5BFF),
+                      ),
+                    ),
+                ),
                 validator: (val) => val!.isEmpty ? 'Enter email' : null,
               ),
               const SizedBox(height: 20),
 
               TextFormField(
                 controller: _passwordController,
+                cursorColor: const Color(0xFF0A5BFF),
                 obscureText: true,
-                decoration: const InputDecoration(labelText: 'Password'),
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: const Color(0xFF0A5BFF),
+                    ),
+                  ),
+                ),
                 validator: (val) => val!.length < 6 ? 'Enter Password (Minimum 6 chararacters)' : null,
               ),
 
               const SizedBox(height: 40),
 
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 60),
-                  backgroundColor: const Color(0xFF0A5BFF),
-                  foregroundColor: Colors.white,
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 60),
+                    backgroundColor: const Color(0xFF0A5BFF),
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: _registerUser,
+                  child: const Text("Sign Up"),
                 ),
-                onPressed: _registerUser,
-                child: const Text("Sign Up"),
               ),
+                const SizedBox(height: 20),
 
-              const SizedBox(height: 20),
-
-              Text(
+                Text(
                   "Already have an account?",
-                style: TextStyle(
-                  color: Colors.black,
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
-              ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              OutlinedButton(
+                OutlinedButton(
                   onPressed: signIn,
                   style: OutlinedButton.styleFrom(
                     side: BorderSide(
                       color: const Color(0xFF0A5BFF),
-                      width: 1.0,
+                      width: 2.0,
                       style: BorderStyle.solid,
                     ),
                     minimumSize: const Size(double.infinity, 60),
-                    backgroundColor: Colors.grey,
-                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.black,
                   ),
                   child: const Text("Sign In"),
-              ),
+                ),
             ],
           ),
         ),
