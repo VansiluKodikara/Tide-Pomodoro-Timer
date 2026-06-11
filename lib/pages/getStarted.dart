@@ -81,34 +81,38 @@ class BackgroundGifScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
+                  SizedBox(
+                    width: double.infinity,
+                    height: 55,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => createAccount(),
+                            builder: (context) => createAccount(),
                           ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide.none,
-                      minimumSize: const Size(double.infinity, 80),
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF0A5BFF),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide.none,
+                        minimumSize: const Size(double.infinity, 80),
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF0A5BFF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
                       ),
-                    ),
                       child: Center(
-                            child: Row(
-                              children: [
-                                Text("Next"),
-                                Icon(Icons.arrow_forward_ios)
-                              ],
-                              mainAxisAlignment: MainAxisAlignment.center,
-                            ),
+                        child: Row(
+                          children: [
+                            Text("Next"),
+                            Icon(Icons.arrow_forward_ios),
+                          ],
+                          mainAxisAlignment: MainAxisAlignment.center,
+                        ),
                       ),
                     ),
+                  ),
                 ],
               ),
             ),
