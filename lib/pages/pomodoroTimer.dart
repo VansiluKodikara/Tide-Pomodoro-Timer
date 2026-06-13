@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:pomodoro_timer/pages/settings.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -57,6 +58,27 @@ class _pomodoroTimerState extends State<pomodoroTimer> {
     String seconds = (_seconds % 60).toString().padLeft(2, '0');
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => settings(),
+              ),
+            );
+          },
+          icon: const Icon(
+            Icons.settings,
+            color: Colors.white,
+            textDirection: TextDirection.ltr,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+      ),
+
       body: Container(
         width: double.infinity,
         height: double.infinity,
