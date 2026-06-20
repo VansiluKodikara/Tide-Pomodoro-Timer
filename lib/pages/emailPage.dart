@@ -154,7 +154,7 @@ class _emailPageState extends State<emailPage> {
                   style: OutlinedButton.styleFrom(
                     side: BorderSide(
                       color: const Color(0xFF0A5BFF),
-                      width: 2.0,
+                      width: 1.0,
                       style: BorderStyle.solid,
                     ),
                     minimumSize: const Size(double.infinity, 60),
