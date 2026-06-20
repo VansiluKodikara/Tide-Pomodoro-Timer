@@ -18,17 +18,29 @@ class pomodoroTimer extends StatefulWidget {
 
 class _pomodoroTimerState extends State<pomodoroTimer> {
   static const int maxSeconds = 25 * 60;
+  static const int restSeconds = 5 * 60;
+  int _restSeconds = restSeconds;
   int _seconds = maxSeconds;
+  bool isRestTime = false;
   Timer? _timer;
 
   void _startTimer() {
-    if (_timer != null) return;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        if (_seconds > 0) {
-          _seconds--;
+        if (!isRestTime) {
+          if (_seconds > 0) {
+            _seconds--;
+          } else {
+            isRestTime = true;
+            _restSeconds = restSeconds;
+          }
         } else {
-          _stopTimer();
+          if (_restSeconds > 0) {
+            _restSeconds--;
+          } else {
+            isRestTime = false;
+            _seconds = maxSeconds;
+          }
         }
       });
     });
