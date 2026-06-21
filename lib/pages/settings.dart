@@ -38,6 +38,19 @@ class _settingsState extends State<settings> {
             backgroundColor: const Color(0xFF0A5BFF),
           ),
 
+        // body: Center(
+        //   child: Container(
+        //     width: 100.0,
+        //     height: 100.0,
+        //     decoration: BoxDecoration(
+        //       shape: BoxShape.circle,
+        //       border: Border.all(
+        //         color: Colors.grey,
+        //         width: 1.0,
+        //       ),
+        //     ),
+        //   ),
+        // ),
 
     );
   }
